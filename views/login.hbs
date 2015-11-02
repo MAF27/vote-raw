@@ -1,0 +1,18 @@
+<form action="/users/login" method="post">
+    <h1>{{title}}</h1>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" autofocus/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+    </div>
+    <div>
+        <input type="submit" value="Log In" />
+        {{#if error}}
+        <div style='color: red;'>{{error}}</div>
+        {{/if}}
+        <span style="float: right">Don't have an account? <a href=/users/register>Register as new user</a></span>
+    </div>
+</form>
