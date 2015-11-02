@@ -1,8 +1,92 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic|Roboto:400,100,300,500,700,900,100italic,300italic,400italic,700italic,900italic,500italic);
+
+#appLayout {
+    width: 50%;
+    font-family: Lato, sans-serif!important;
+    font-size: 1.1em;
+    margin: 0px;
+    padding: 10px 20px 0px 20px;
 }
 
 a {
   color: #00B7FF;
+}
+
+form {
+    padding: 15px;
+    border: 1px solid grey;
+}
+
+form label {
+    width: 15%;
+    display: inline-block;
+}
+
+form input {
+    font-size: 0.9em;
+    border: none;
+    margin: 2px 0px 2px 0px;
+    padding: 2px;
+    background-color: rgba(67, 147, 185, 0.15);
+    height: 1.2em;
+}
+
+form input:focus {
+    outline: lightblue solid thin;
+    background-color: rgba(67, 147, 185, 0.25);
+/*    background-color: yellow;*/
+}
+
+form input[type=submit] {
+	color: white;
+	background-color: #00BCD4;
+	display: inline-block;
+	border: 0;
+	border-radius: 3px;
+	padding: 5px 7px 25px 7px;
+	font-weight: 500;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+form h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    font-family: Roboto, sans-serif;
+    color: gold;
+    margin: 5px 0px 5px 0px;
+}
+
+#greeting {
+    float: right;
+}
+
+.error-msg {
+    display: block;
+    color: red;
+    margin-top: 1em;
+}
+
+.hero-unit {
+    background-color: rgb(67, 147, 185);;    
+    color: white;
+    padding: 10px 10px 10px 20px;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+    padding-bottom: 0px;
+}
+
+.hero-unit .lead {
+    margin-bottom: 20px;
+    margin-top: -40px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.4;
 }
