@@ -24,18 +24,19 @@ form label {
 
 form input {
     font-size: 0.9em;
-    border: none;
+    border: 1px solid lightgrey;
     margin: 2px 0px 2px 0px;
-    padding: 2px;
-    background-color: rgba(67, 147, 185, 0.15);
+    padding: 3px 2px 2px 3px;
+    background-color: rgba(67, 147, 185, 0);
     height: 1.2em;
+    width: 50%;
 }
 
 form input:focus {
     outline: lightblue solid thin;
-    background-color: rgba(67, 147, 185, 0.25);
-/*    background-color: yellow;*/
-}
+/*    background-color: rgba(67, 147, 185, 0.25);
+    background-color: yellow;
+*/}
 
 form input[type=submit] {
 	color: white;
@@ -47,6 +48,7 @@ form input[type=submit] {
 	font-weight: 500;
 	cursor: pointer;
 	margin-top: 10px;
+	width: auto;
 }
 
 form h1 {
@@ -89,4 +91,11 @@ form h1 {
     font-size: 16px;
     font-weight: 200;
     line-height: 1.4;
+}
+
+footer {
+    border-top: 1px solid darkgrey;
+    margin-top: 2em;
+    text-align: center;
+    font-size: 90%;
 }

@@ -13,4 +13,8 @@ router.get('/profile', restrict, function(req, res, next) {
   res.render('profile', vm);
 });
 
+router.get('/polls', restrict, function(req, res, next) {
+  res.render('./polls/polls');
+});
+
 module.exports = router;

@@ -1,0 +1,13 @@
+<div class="container" id='createPoll'>
+    <h1>Create a new poll</h1>
+    <form>
+        <label>Poll Name:</label>
+        <strong><input type="text" placeholder='{{vm.data.name}}' style="font-weight: 700;" /></strong>
+        <div ng-repeat='option in vm.data.options'>
+            <label>Option:</label>
+            <input type="text" placeholder='{{option.optionName}}' name="" />
+            <span>{{option.votes}} votes</span>
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
