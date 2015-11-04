@@ -7,6 +7,15 @@ router.get('/', restrict, function(req, res, next) {
   res.render('polls/index');
 });
 
+router.get('/api/get-ideas', restrict, function(req, res, next) {
+    PollService.getIdeas(function(err, ideas){
+        if (err) {
+            return res.status(500).json({error: "Couldn't get any ideas at all."});
+        }
+        res.json(ideas);
+    });
+});
+
 router.post('/api/create-poll', restrict, function(req, res, next) {
     console.log('poll post: ', req.body, req.user._doc);
     PollService.addPoll(req.body, req.user._doc, function(err, pollId) {
