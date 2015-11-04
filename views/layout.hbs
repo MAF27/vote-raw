@@ -8,23 +8,22 @@
 
 <body>
 
-  <body ng-app="voteApp" id="appLayout">
-
-    <header class="hero-unit" id="banner">
-      <div class="container">
-        <h1>Vote-au-Matic</h1>
-        <p class="lead">What you've always wanted to know but were afraid to ask</p>
-      </div>
-    </header>
+  <body id="appLayout">
+    <a href="/">
+      <header class="hero-unit" id="banner">
+        <div class="container">
+          <h1>Vote-au-Matic</h1>
+          <p class="lead">What you've always wanted to know but were afraid to ask</p>
+        </div>
+      </header>
+    </a>
 
     {{#if username}}
     <div id="greeting">
       <strong>Hi {{username}}!</strong>
       <a href=/users/logout>Log out</a>
     </div>
-    {{/if}} 
-    
-    {{{body}}}
+    {{/if}} {{{body}}}
 
     <footer class="footer">
       <div class="container">
