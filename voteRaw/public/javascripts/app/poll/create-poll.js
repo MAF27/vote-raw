@@ -5,34 +5,34 @@
         .module('voteApp')
         .controller('CreatePollCtrl', CreatePollCtrl);
 
-    function CreatePollCtrl() {
+    CreatePollCtrl.$inject = ['api'];
 
-        var defaults = [{
-            name: 'Best Director',
-            options: [{
-                    optionName: 'Hitchcock',
-                    votes: 99
-            },
-                {
-                    optionName: 'Charley Chaplin',
-                    votes: 97
-            }]
-        }, {
-            name: 'Next Megatrend',
-            options: [{
-                    optionName: 'Self Driving Cars',
-                    votes: 9837
-            },
-                {
-                    optionName: 'Self Feeding Animals',
-                    votes: 4
-            }]
-        }];
+    function CreatePollCtrl(api) {
 
-/*        var which = Math.random() * (defaults.length - 1 - 0) + 0;
-*/        var which = Math.round(Math.random());
+        var vm = this;
 
-        this.data = defaults[which];
+        api.getIdeas()
+            .then(function(idea) {
+                vm.data = idea;
+            });
+
+        vm.createPoll = function() {
+            api.createPoll(vm.data)
+                .then(function(response) {
+                        vm.poll_id = response;
+                    },
+                    function(reason) {
+                        console.log(reason);
+                    });
+        };
+
+        vm.addOption = function() {
+            vm.data.options.push({
+                description: '',
+                placeholder: 'Yet one more choice',
+                votes: 0
+            });
+        };
     }
 
 }());

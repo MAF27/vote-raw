@@ -1,0 +1,38 @@
+[
+    {
+        "title": "",
+        "placeholder": "Best Director",
+        "options": [
+            {
+                "index": 0,
+                "description": "",
+                "placeholder": "Alfred Hitchcock",
+                "votes": "0"
+            },
+            {
+                "index": 1,
+                "description": "",
+                "placeholder": "Charley Chaplin",
+                "votes": "0"
+            }
+        ]
+    },
+    {
+        "title": "",
+        "placeholder": "Next Megatrend",
+        "options": [
+            {
+                "index": 0,
+                "description": "",
+                "placeholder": "Self Driving Cars",
+                "votes": "0"
+            },
+            {
+                "index": 1,
+                "description": "",
+                "placeholder": "Self Feeding Animals",
+                "votes": "0"
+            }
+        ]
+    }
+]

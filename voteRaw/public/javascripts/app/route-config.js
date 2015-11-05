@@ -14,6 +14,11 @@ function config($routeProvider) {
             templateUrl: '/javascripts/app/poll/create-poll.html',
             controller: 'CreatePollCtrl',
             controllerAs: 'vm'
+        })
+        .when('/vote/:pollId', {
+            templateUrl: '/javascripts/app/vote/vote.html',
+            controller: 'voteCtrl',
+            controllerAs: 'vm'
         });
 }
 }());
