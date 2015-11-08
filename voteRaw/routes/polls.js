@@ -16,6 +16,15 @@ router.get('/api/get-ideas', restrict, function(req, res, next) {
     });
 });
 
+router.get('/api/get-polls', restrict, function(req, res, next) {
+    PollService.getPolls(req.user._id, function(err, polls){
+        if (err) {
+            return res.status(500).json({error: "Couldn't get polls."});
+        }
+        res.json(polls);
+    });
+});
+
 router.get('/api/retrieve-poll', function(req, res, next) {
     PollService.retrievePoll(req.query.pollId, function(err, poll){
         if (err) {

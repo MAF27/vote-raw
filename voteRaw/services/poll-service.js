@@ -34,10 +34,12 @@ exports.addPoll = function(poll, user, next) {
   });
 };
 
-exports.findPolls = function(userId, next) {
+exports.getPolls = function(userId, next) {
+  console.log('Getting polls for ', userId);
   Poll.find({
-    userId: userId
+    'user._id': userId
   }, function(err, polls) {
+    console.log(polls);
     next(err, polls);
   });
 };

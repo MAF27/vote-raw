@@ -1,3 +1,4 @@
+/* global angular */
 (function() {
     'use strict';
 
@@ -26,11 +27,12 @@
                     });
         };
 
-        vm.addOption = function() {
+        vm.addOption = function(last) {
             vm.data.options.push({
                 description: '',
                 placeholder: 'Yet one more choice',
-                votes: 0
+                votes: 0,
+                index: vm.data.options.length
             });
         };
     }

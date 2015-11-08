@@ -12,7 +12,8 @@
             createPoll: createPoll,
             getIdeas: getIdeas,
             retrievePoll: retrievePoll,
-            updateVotes: updateVotes
+            updateVotes: updateVotes,
+            getPolls: getPolls
         };
 
         function getIdeas() {
@@ -31,6 +32,16 @@
                         pollId: pollId
                     }
                 })
+                .then(function(response) {
+                        return response.data;
+                    },
+                    function(reason) {
+                        console.log(reason);
+                    });
+        }
+
+        function getPolls() {
+            return $http.get('/polls/api/get-polls')
                 .then(function(response) {
                         return response.data;
                     },

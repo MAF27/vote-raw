@@ -7,4 +7,8 @@ router.get('/', restrict, function(req, res, next) {
   res.render('index', vm);
 });
 
+router.get('/test', function(req, res, next) {
+  res.render('test');
+});
+
 module.exports = router;

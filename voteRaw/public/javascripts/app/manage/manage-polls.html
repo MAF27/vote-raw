@@ -1,0 +1,12 @@
+<div class="container" id='managePolls'>
+    <h1>My Polls</h1>
+
+    <ul ng-repeat="pollRecord in vm.data">
+        <li><strong>'{{pollRecord.poll.title}}'</strong> 
+        <button ng-click="vm.deletePoll(pollRecord._id, $index);">Delete</button> 
+        <button ng-click="vm.showStats(pollRecord._id);">Show Stats</button> 
+        Link: <a href="https://basejump-clementine-maf27.c9.io/polls#/vote/{{pollRecord._id}}">https://basejump-clementine-maf27.c9.io/polls#/vote/{{pollRecord._id}}
+        </li>
+    </ul>
+
+</div>
