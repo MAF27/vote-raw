@@ -1,0 +1,1 @@
+Seed database: mongoimport -d voteRaw -c ideas --file ./seed.json --jsonArray
