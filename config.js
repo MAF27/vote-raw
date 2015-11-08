@@ -1,5 +1,5 @@
 var config = {};
 
-config.mongoURI = process.env.MONGOLAB_RUI || 'mongodb://localhost:27017/voteRaw';
+config.mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/voteRaw';
 
 module.exports = config;
