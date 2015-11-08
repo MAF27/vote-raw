@@ -7,6 +7,8 @@ var PollSchema = new Schema({
   poll: {
     title: String,
     options: [{
+      _id: false,
+      index: Number,
       description: String,
       votes: Number
     }],

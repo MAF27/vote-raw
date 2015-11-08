@@ -16,16 +16,40 @@ router.get('/api/get-ideas', restrict, function(req, res, next) {
     });
 });
 
+router.get('/api/get-polls', restrict, function(req, res, next) {
+    PollService.getPolls(req.user._id, function(err, polls){
+        if (err) {
+            return res.status(500).json({error: "Couldn't get polls."});
+        }
+        res.json(polls);
+    });
+});
+
+router.get('/api/retrieve-poll', function(req, res, next) {
+    PollService.retrievePoll(req.query.pollId, function(err, poll){
+        if (err) {
+            next(err);
+        }
+        res.json(poll);
+    });
+});
+
 router.post('/api/create-poll', restrict, function(req, res, next) {
-    console.log('poll post: ', req.body, req.user._doc);
     PollService.addPoll(req.body, req.user._doc, function(err, pollId) {
         if (err) {
             return res.status(500).json({error: "Couldn't create poll"});
         }
         req.session.poll_id = pollId;
-        res.json({success: true});
+        res.json(pollId);
     });
 });
 
+router.post('/api/update-votes', restrict, function(req, res, next) {
+    PollService.updateVotes(req.body, function(err) {
+        if (err) {
+            return res.status(500).json({error: "Couldn't update votes"});
+        }
+    });
+});
 
 module.exports = router;

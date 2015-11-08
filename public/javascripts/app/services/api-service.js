@@ -10,7 +10,10 @@
     function apiFactory($http) {
         return {
             createPoll: createPoll,
-            getIdeas: getIdeas
+            getIdeas: getIdeas,
+            retrievePoll: retrievePoll,
+            updateVotes: updateVotes,
+            getPolls: getPolls
         };
 
         function getIdeas() {
@@ -23,8 +26,47 @@
                     });
         }
 
+        function retrievePoll(pollId) {
+            return $http.get('/polls/api/retrieve-poll', {
+                    params: {
+                        pollId: pollId
+                    }
+                })
+                .then(function(response) {
+                        return response.data;
+                    },
+                    function(reason) {
+                        console.log(reason);
+                    });
+        }
+
+        function getPolls() {
+            return $http.get('/polls/api/get-polls')
+                .then(function(response) {
+                        return response.data;
+                    },
+                    function(reason) {
+                        console.log(reason);
+                    });
+        }
+
         function createPoll(poll) {
             return $http.post('/polls/api/create-poll', poll)
+                .then(function(response) {
+                        return response.data;
+                    },
+                    function(reason) {
+                        console.log(reason);
+                    });
+        }
+
+        function updateVotes(pollId, index, votes) {
+            var data = {
+                pollId: pollId,
+                index: index,
+                votes: votes
+            };
+            return $http.post('/polls/api/update-votes', data)
                 .then(function(response) {
                         return response.data;
                     },
