@@ -9,7 +9,6 @@
     statsCtrl.$inject = ['api', '$routeParams'];
 
     function statsCtrl(api, $routeParams) {
-
         var vm = this;
 
         vm.drawChart = function() {

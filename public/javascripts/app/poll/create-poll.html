@@ -1,7 +1,8 @@
 <div class="container" id='createPoll'>
-    <h1>Create a new poll</h1>
-    <form name="createPollForm">
-        <div ng-show="!createPollForm.$submitted">
+    <h1>Create a new poll      <button class="btn" ng-click="vm.addOption()" ng-show="!createPollForm.$submitted">Add Option</button></h1>
+
+    <form name="createPollForm" ng-show="!createPollForm.$submitted">
+        <div>
             <label>Poll Title:</label>
             <strong><input type="text" placeholder='{{vm.data.placeholder}}' style="font-weight: 700;" ng-model="vm.data.title" required/></strong>
             <div ng-repeat="option in vm.data.options | orderBy:index">
@@ -9,9 +10,9 @@
                 <input type="text" placeholder='{{option.placeholder}}' name="" ng-model="option.description" />
             </div>
             <input type="submit" value="Submit" ng-click="vm.createPoll()" />
-            <button ng-click="vm.addOption()">Add Option</button>
         </div>
-        <div ng-show="createPollForm.$submitted">Your poll '{{vm.data.title}}' has been created. 
-        Send this link to all your friends for voting: <a href="https://basejump-clementine-maf27.c9.io/polls#/vote/{{vm.poll_id}}">https://basejump-clementine-maf27.c9.io/polls#/vote/{{vm.poll_id}}</a></div>
     </form>
 </div>
+<div ng-show="createPollForm.$submitted">Your poll '{{vm.data.title}}' has been created. 
+Send this link to your friends for voting: 
+<a href="{{vm.url}}/polls#/vote/{{vm.poll_id}}">{{vm.url}}/polls#/vote/{{vm.poll_id}}</a></div>

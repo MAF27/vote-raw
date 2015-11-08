@@ -5,7 +5,7 @@
         <li><strong>'{{pollRecord.poll.title}}'</strong> 
         <button ng-click="vm.deletePoll(pollRecord._id, $index);">Delete</button> 
         <button ng-click="vm.showStats(pollRecord._id);">Show Stats</button> 
-        Link: <a href="https://basejump-clementine-maf27.c9.io/polls#/vote/{{pollRecord._id}}">https://basejump-clementine-maf27.c9.io/polls#/vote/{{pollRecord._id}}
+        Link: <a href="{{vm.url}}/polls#/vote/{{pollRecord._id}}">{{vm.url}}/polls#/vote/{{pollRecord._id}}
         </li>
     </ul>
 

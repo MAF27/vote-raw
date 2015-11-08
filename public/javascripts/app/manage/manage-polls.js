@@ -11,6 +11,7 @@
     function ManageCtrl(api, $location) {
 
         var vm = this;
+        vm.url = "https://"+window.location.hostname;
 
         vm.deletePoll = function(pollId, index){
           console.log('Would delete poll with id ', pollId);

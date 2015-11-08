@@ -11,6 +11,7 @@
     function CreatePollCtrl(api) {
 
         var vm = this;
+        vm.url = "https://"+window.location.hostname;
 
         api.getIdeas()
             .then(function(idea) {
