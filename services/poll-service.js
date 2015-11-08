@@ -35,11 +35,9 @@ exports.addPoll = function(poll, user, next) {
 };
 
 exports.getPolls = function(userId, next) {
-  console.log('Getting polls for ', userId);
   Poll.find({
     'user._id': userId
   }, function(err, polls) {
-    console.log(polls);
     next(err, polls);
   });
 };
