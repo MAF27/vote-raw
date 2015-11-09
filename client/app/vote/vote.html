@@ -1,0 +1,9 @@
+<div class="container" id='votePoll'>
+    <h1>Vote on Poll '{{vm.data.title}}'</h1>
+    <form name="voteForm">
+        <div ng-repeat="option in vm.data.options | orderBy:option.index">
+            <div class="option-box"><input type="checkbox" ng-model="option.checked"/>{{option.description}}</div>
+        </div>
+        <button ng-click="vm.getVotes();">Vote</button>
+    </form>
+</div>
