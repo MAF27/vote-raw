@@ -1,1 +1,19 @@
+NEXT STEPS
+git push github
+new cloud 9 "basejumps", clean
+git clone from githup to app folder voteRaw
+cleanup code, server vs client and label
+finish logic and styling
+    Links: Open in new tab
+    Bug: Vote page hangs when clicking header. Shouldn't actually have header, this is outside the app. Or no link, not necessarily authenticated.
+
+
 Seed database: mongoimport -d voteRaw -c ideas --file ./seed.json --jsonArray
+
+>>Deploy to heroku
+heroku login
+heroku git:remote -a vote-raw
+git add . --all
+git commit -m "Message"
+git push heroku master
+
