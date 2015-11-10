@@ -12,37 +12,6 @@
 }
 
 a { text-decoration: none; }
-h1 { font-size: 2.5em; font-weight: 700; margin: 0 0 0.5em 0; }
-
-/* FORM STYLING */
-input {
-    background-color: white;
-    padding: 7px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-family: Lato, sans-serif;
-    font-size: 1em;
-    margin: 0px;
-    box-sizing: border-box;
-}
-
-input[type=text] { width: 250; }
-
-input[type=submit] {
-    background-color: #6d0911;
-    color: white;
-    cursor: pointer;
-    padding-left: 10px; padding-right: 10px;
-    font-weight: 700;
-    font-size: 1em;
-    transition: background-color 0.5s;
-}
-
-input[type=submit]:hover {
-    background-color: rgb(253, 127, 132);
-}
-
-input:focus { outline: lightblue solid thin; }
 
 
 /* Header */
@@ -75,7 +44,9 @@ nav {
 nav::after { content: ''; display: block; clear: both; }
 
 nav ul { list-style: none; margin: 0; padding: 0; }
+
 nav > ul { padding-left: 350px; }
+
 nav > ul > li { float: right; }
 
 nav ul li a {
@@ -89,28 +60,75 @@ nav ul li a {
 nav ul li a:visited { color: white; }
 nav ul li a:hover { background-color: #6d0911; }
 
-/* ALL Sections */
-
-section { padding: 0 30px; }
-
 /* Login Section */
 
-section.login { margin: 0 auto; width: 450px; padding-top: 15px; }
-section.login p { margin-top: 0.5em; font-size: 1em; }
+#appLayout {
+    width: 100%;
+    font-family: Lato, sans-serif;
+    font-size: 1.1em;
+    margin: 0px;
+}
 
-/* Signup Section */
+.container {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 10px 20px 0px 20px;
+}
 
-section.register { margin: 0 auto; width: 450px; padding-top: 15px; }
-section.register form { margin: 0 auto; width: 250px; padding-top: 15px; }
-section.register input[type=text] { margin-bottom: 5px; }
-section.register input[type=submit] { background-color: #51A7F9; margin-top: 15px; width: 185px; box-sizing: border-box; }
+.centered {
+    margin: auto;
+    max-width: 600px;
+}
 
+.y {
+    background-color: yellow;
+}
 
-/* Main Section */
-section.main { margin-top: -50px; padding: 0; }
-section.main aside { width: 33%; float: left; text-align: center; }
+#appLayout a {
+    text-decoration: none;
+}
 
-/* Footer */
+#appLayout header a {
+    color: white;
+}
+
+.hero-unit {
+    background-color: rgb(67, 147, 185);
+    padding: 10px 10px 40px 20px;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+    padding-bottom: 0px;
+}
+
+.hero-unit .lead {
+    margin-bottom: 20px;
+    margin-top: -40px;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.4;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#greeting {
+    float: right;
+    font-size: 0.8em;
+}
+
+.error-msg {
+    display: block;
+    color: red;
+    margin-top: 1em;
+}
 
 footer {
     border-top: 1px solid darkgrey;
@@ -170,4 +188,38 @@ footer {
 
 .clear {
     clear: both;
+}
+
+
+/* LOGIN RIBBON */
+
+section.login { margin: 0 auto; width: 450px; padding-top: 15px; }
+section.login p { margin-top: 0.5em; font-size: 1em; }
+section.login input {
+    background-color: white;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: Lato, sans-serif;
+    font-size: 1em;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+section.login input[type=submit] {
+    background-color: #6d0911;
+    color: white;
+    cursor: pointer;
+    padding-left: 10px; padding-right: 10px;
+    font-weight: 700;
+    font-size: 1em;
+    transition: background-color 0.5s;
+}
+
+section.login input[type=submit]:hover {
+    background-color: rgb(253, 127, 132);
+}
+
+section.login input:focus {
+    outline: lightblue solid thin;
 }

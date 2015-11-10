@@ -21,7 +21,6 @@
             data.addRows([[vm.data.options[i].description, vm.data.options[i].votes]]);
             }
             var options = {
-                title: 'Votes for poll "' + vm.data.title + '"',
                 legend: 'none',
                 bar: {
                     groupWidth: '95%'
@@ -29,7 +28,8 @@
                 vAxis: {
                     gridlines: {
                         count: 4
-                    }
+                    },
+                    format:'#0'
                 },
                 hAxis: {
                     showTextEvery: 1

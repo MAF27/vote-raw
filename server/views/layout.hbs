@@ -8,33 +8,38 @@
 
 <body>
 
-  <body id="appLayout">
-    <a href="/">
-      <header class="hero-unit" id="banner">
-        <div class="container">
-          <h1>Vote-au-Matic</h1>
-          <p class="lead">What you've always wanted to know but were afraid to ask</p>
-        </div>
-      </header>
-    </a>
+  <div id="page">
 
-    {{#if username}}
-    <div id="greeting">
-      <strong>Hi {{username}}!</strong>
-      <a href=/users/logout>Log out</a>
-    </div>
-    {{/if}} 
-    
+    <header>
+      <a class="logo" title="Vote-au-Matic" href="/">Vote-au-Matic</a>
+    </header>
+    <nav>
+      <ul>
+        {{#if username}}
+        <li>
+          <strong>Hi {{username}}!</strong>
+          <a href=/users/logout>Log out</a>
+        </li>
+        {{else}}
+        <li><a>Sign Up</a></li>
+        <li><a>Log In</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+
     {{{body}}}
 
-    <footer class="footer">
-      <div class="container">
+    <footer>
+      <div class="content">
         <p>Freecodedamp Basejump #1 |
           <a href="https://twitter.com/MAF27Test">@MAF27Test</a></p>
       </div>
     </footer>
 
+  </div>
 
-  </body>
+
+
+</body>
 
 </html>

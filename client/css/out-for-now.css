@@ -1,0 +1,48 @@
+form {
+    padding: 15px;
+    /*border: 1px solid grey;*/
+}
+
+form label {
+    width: 85px;
+    display: inline-block;
+}
+
+form input[type=text] {
+    font-size: 0.9em;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin: 2px 0px 2px 0px;
+    padding: 3px 2px 2px 3px;
+    background-color: rgba(67, 147, 185, 0);
+    height: 1.2em;
+    width: 50%;
+}
+
+form input:focus {
+    outline: lightblue solid thin;
+    /*    background-color: rgba(67, 147, 185, 0.25);
+    background-color: yellow;
+*/
+}
+
+form input[type=submit] {
+    color: white;
+    background-color: #00BCD4;
+    display: inline-block;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px 7px 25px 7px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    width: auto;
+}
+
+form h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    font-family: Roboto, sans-serif;
+    color: gold;
+    margin: 5px 0px 5px 0px;
+}
