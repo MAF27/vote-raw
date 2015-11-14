@@ -24,7 +24,7 @@ router.post('/register', function(req, res, next) {
             delete vm.input.password;
             return res.render('users/register', vm);
         }
-        req.login(req.body, function(err){
+        req.login(req.body, function(err) {
             if (err) {
                 return console.log(err);
             }
@@ -40,20 +40,23 @@ router.get('/login', function(req, res, next) {
     res.render('users/login', vm);
 });
 
-router.post('/login', passport.authenticate('local', { 
+router.post('/login', passport.authenticate('local', {
     failureRedirect: '/users/login',
     successRedirect: '/',
     failureFlash: 'Invalid credentials.'
 }));
 
 router.get('/logout', function(req, res, next) {
-   req.logout();
-   res.redirect('/users/login');
+    req.logout();
+    res.redirect('/users/login');
 });
 
 router.get('/profile', restrict, function(req, res, next) {
-    var vm = { input: req.user };
-  res.render('users/profile', vm);
+    var vm = {
+        username: req.user ? req.user.firstName : null,
+        input: req.user
+    };
+    res.render('users/profile', vm);
 });
 
 module.exports = router;

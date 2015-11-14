@@ -22,6 +22,7 @@
             }
             var options = {
                 legend: 'none',
+                colors: [ '#9A3900'], 
                 bar: {
                     groupWidth: '95%'
                 },

@@ -3,6 +3,7 @@
         <h1>Manage Polls</h1>
 
         <p ng-show="!vm.data">Loading ...</p>
+        <p ng-show="vm.data.length === 0">No polls yet. Create them here: &nbsp;<a href="/polls#/create" class="btn">Create Poll</a></p>
         <ul ng-repeat="pollRecord in vm.data">
             <li><strong>'{{pollRecord.poll.title}}'</strong>
                 <span>Link: <a href="{{vm.url}}/polls#/vote/{{pollRecord._id}}">{{vm.url}}/polls#/vote/{{pollRecord._id}}</span></a>
