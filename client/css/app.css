@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic|Roboto:400,100,300,500,700,900,100italic,300italic,400italic,700italic,900italic,500italic);
 
 /*APP LAYOUT*/
+html, body { height: 100%; }
 
 #page {
     position: relative;
@@ -9,6 +10,7 @@
     font-size: 16px;
     margin: 0 auto;
     padding: 0;
+    height: 100%;
 }
 
 a { text-decoration: none; }
@@ -26,6 +28,11 @@ input {
     box-sizing: border-box;
 }
 
+::-webkit-input-placeholder, :-ms-input-placeholder, ::-moz-placeholder, :-moz-placeholder{ font-weight: 100; }
+
+button { font-family: Lato, sans-serif; padding-left: 10px; padding-right: 10px; font-weight: 700; font-size: 1em; text-shadow: none; border: none;  border-radius: 3px; }
+button:focus { outline: none; }
+
 input[type=text] { width: 250; }
 
 input[type=submit] {
@@ -38,39 +45,18 @@ input[type=submit] {
     transition: background-color 0.5s;
 }
 
-input[type=submit]:hover {
-    background-color: rgb(253, 127, 132);
-}
-
+input[type=submit]:hover { background-color: rgb(253, 127, 132); }
 input:focus { outline: lightblue solid thin; }
 
 
 /* Header */
-header {
-    position: relative;
-    max-width: 1280px; height: 380px;
-    background: #fff url('../img/clockwork-1280.jpg') no-repeat center center;
-}
+header { position: relative; max-width: 1280px; height: 380px; background: #fff url('../img/clockwork-1280.jpg') no-repeat center center; }
 
-header .logo {
-    z-index: 1;
-    position: absolute;
-    font-size: 2.8em;
-    font-weight: 700;
-    color: white;
-    top: 40px; left: 15px;
-    text-decoration: none;
-}
+header .logo { z-index: 1; position: absolute; font-size: 2.8em; font-weight: 700; text-decoration: none; color: white;
+    top: 40px; left: 15px; }
 
 /* Navbar */
-
-nav {
-    position: absolute;
-    top: 30px; left: 0; width: 100%;
-    padding: 0 0 0 0;
-    background-color: rgba(0,0,0,.55);
-    color: white;
-}
+nav { position: absolute; top: 30px; left: 0; width: 100%; padding: 0 0 0 0; background-color: rgba(0,0,0,.55); color: white; }
 
 nav::after { content: ''; display: block; clear: both; }
 
@@ -92,6 +78,7 @@ nav ul li a:hover { background-color: #6d0911; }
 /* ALL Sections */
 
 section { padding: 0 30px; }
+section::after { content:''; display: block; clear: both; }
 
 /* Login Section */
 
@@ -99,24 +86,31 @@ section.login { margin: 0 auto; width: 450px; padding-top: 15px; }
 section.login p { margin-top: 0.5em; font-size: 1em; }
 
 /* Signup Section */
-
 section.register { margin: 0 auto; width: 450px; padding-top: 15px; }
 section.register form { margin: 0 auto; width: 250px; padding-top: 15px; }
 section.register input[type=text] { margin-bottom: 5px; }
 section.register input[type=submit] { background-color: #51A7F9; margin-top: 15px; width: 185px; box-sizing: border-box; }
 
-
 /* Main Section */
-section.main { margin-top: -50px; padding: 0; }
+section.main { position: absolute; top: 270px; z-index: 2; color: #ddd; }
+section.main a { color: #777; }
 section.main aside { width: 33%; float: left; text-align: center; }
+section.main aside .content { border: 1px solid #aaa; border-radius: 5px; margin: 50px; padding: 30px; background-color: #fff; }
+section.main aside .content::before { font-family: FontAwesome; font-size: 4em; color: rgb(206, 100, 20); }
+section.main aside .content.create::before { content: "\f059"; }
+section.main aside .content.manage::before { content: "\f0f1"; }
+section.main aside .content.settings::before { content: "\f0ad"; }
+
+/* Create Poll Section */
+section.create { margin: 0 auto; width: 520px; padding-top: 15px; }
+section.create input[type=text] { margin-bottom: 5px; width: 400px; font-weight: 500; }
+section.create label { width: 90px; display: inline-block;}
+section.create .btn-right { float: right; background-color: #51A7F9; color: white; transition: background-color 0.5s; margin-top: -60px; padding: 10px;}
 
 /* Footer */
-
 footer {
-    border-top: 1px solid darkgrey;
-    margin-top: 2em;
-    text-align: center;
-    font-size: 90%;
+    position: absolute; bottom: 15px; width: 100%;
+    border-top: 1px solid darkgrey; margin-top: 1.5em; text-align: center; font-size: 0.9em;
 }
 
 #votePoll .option {
