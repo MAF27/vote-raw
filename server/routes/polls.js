@@ -4,30 +4,35 @@ var PollService = require("../services/poll-service");
 var restrict = require("../auth/restrict");
 
 router.get('/', restrict, function(req, res, next) {
-  res.render('polls/index');
+    var vm = { username: req.user ? req.user.firstName : null };
+    res.render('polls/index', vm);
 });
 
 router.get('/api/get-ideas', restrict, function(req, res, next) {
-    PollService.getIdeas(function(err, ideas){
+    PollService.getIdeas(function(err, ideas) {
         if (err) {
             console.log("Couldn't get any ideas at all.");
-            return res.status(500).json({error: "Couldn't get any ideas at all."});
+            return res.status(500).json({
+                error: "Couldn't get any ideas at all."
+            });
         }
         res.json(ideas);
     });
 });
 
 router.get('/api/get-polls', restrict, function(req, res, next) {
-    PollService.getPolls(req.user._id, function(err, polls){
+    PollService.getPolls(req.user._id, function(err, polls) {
         if (err) {
-            return res.status(500).json({error: "Couldn't get polls."});
+            return res.status(500).json({
+                error: "Couldn't get polls."
+            });
         }
         res.json(polls);
     });
 });
 
 router.get('/api/retrieve-poll', function(req, res, next) {
-    PollService.retrievePoll(req.query.pollId, function(err, poll){
+    PollService.retrievePoll(req.query.pollId, function(err, poll) {
         if (err) {
             next(err);
         }
@@ -38,7 +43,9 @@ router.get('/api/retrieve-poll', function(req, res, next) {
 router.post('/api/create-poll', restrict, function(req, res, next) {
     PollService.addPoll(req.body, req.user._doc, function(err, pollId) {
         if (err) {
-            return res.status(500).json({error: "Couldn't create poll"});
+            return res.status(500).json({
+                error: "Couldn't create poll"
+            });
         }
         req.session.poll_id = pollId;
         res.json(pollId);
@@ -48,7 +55,19 @@ router.post('/api/create-poll', restrict, function(req, res, next) {
 router.post('/api/update-votes', restrict, function(req, res, next) {
     PollService.updateVotes(req.body, function(err) {
         if (err) {
-            return res.status(500).json({error: "Couldn't update votes"});
+            return res.status(500).json({
+                error: "Couldn't update votes"
+            });
+        }
+    });
+});
+
+router.post('/api/delete-poll', restrict, function(req, res, next) {
+    PollService.deletePoll(req.body.pollId, function(err) {
+        if (err) {
+            return res.status(500).json({
+                error: "Couldn't delete poll"
+            });
         }
     });
 });

@@ -17,5 +17,7 @@
         
     </div>
     <div ng-show="createPollForm.$submitted">Your poll '{{vm.data.title}}' has been created. Send this link to your friends for voting:
-        <a href="{{vm.url}}/polls#/vote/{{vm.poll_id}}">{{vm.url}}/polls#/vote/{{vm.poll_id}}</a></div>
+        <a href="{{vm.url}}/polls#/vote/{{vm.poll_id}}">{{vm.url}}/polls#/vote/{{vm.poll_id}}</a>
+        <a href="/" class="btn">Home</a>
+    </div>
 </section>

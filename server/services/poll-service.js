@@ -56,10 +56,20 @@ exports.updateVotes = function(data, next) {
   },{
     "poll.options.$.votes": data.votes
   }, null, function(err, numAffected){
-    console.log('updateVotes: ', err, numAffected);
     if (err) {
       next(err);
     }
     next(null); // No error
   });
+};
+
+exports.deletePoll = function(pollId, next) {
+  Poll.remove({ '_id': pollId },
+    function(err, numAffected) {
+      if (err) {
+        console.log(err);
+        next(err);
+      }
+      next(null);
+    });
 };

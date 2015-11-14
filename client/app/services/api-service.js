@@ -14,7 +14,8 @@
             getIdeas: getIdeas,
             retrievePoll: retrievePoll,
             updateVotes: updateVotes,
-            getPolls: getPolls
+            getPolls: getPolls,
+            deletePoll: deletePoll
         };
 
         function getIdeas() {
@@ -68,6 +69,17 @@
                 votes: votes
             };
             return $http.post('/polls/api/update-votes', data)
+                .then(function(response) {
+                        return response.data;
+                    },
+                    function(reason) {
+                        console.log(reason);
+                    });
+        }
+
+        function deletePoll(pollId) {
+            var data = { 'pollId': pollId };
+            return $http.post('/polls/api/delete-poll', data)
                 .then(function(response) {
                         return response.data;
                     },
