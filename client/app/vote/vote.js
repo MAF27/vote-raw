@@ -27,13 +27,14 @@
         };
 
         api.retrievePoll($routeParams.pollId)
-            .then(function(pollRecord) {
-                vm.data = pollRecord.poll;
-                vm.pollId = pollRecord._id;
-            }),
-            function(reason) {
-                console.log(reason);
-            };
+            .then(function(data) {
+                vm.data = data.poll;
+                vm.pollId = data._id;
+            })
+            .catch(function(err, status) {
+                vm.pollId = null;
+                vm.errmsg = err.error;
+            });
     }
 
 }());

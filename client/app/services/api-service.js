@@ -29,17 +29,19 @@
         }
 
         function retrievePoll(pollId) {
-            return $http.get('/polls/api/retrieve-poll', {
-                    params: {
-                        pollId: pollId
-                    }
-                })
-                .then(function(response) {
-                        return response.data;
-                    },
-                    function(reason) {
-                        console.log(reason);
+            var promise = new Promise(function(resolve, reject) {
+                $http.get('/polls/api/retrieve-poll', { params: { pollId: pollId } })
+                    .then(function success(response) {
+                        resolve(response.data);
+                    })
+                    .catch(function error(reason, status) {
+                        reject({
+                            status: 500,
+                            error: "Ooops. That poll does not exist. It may have been deleted by the author."
+                        });
                     });
+            });
+            return promise;
         }
 
         function getPolls() {
@@ -78,7 +80,9 @@
         }
 
         function deletePoll(pollId) {
-            var data = { 'pollId': pollId };
+            var data = {
+                'pollId': pollId
+            };
             return $http.post('/polls/api/delete-poll', data)
                 .then(function(response) {
                         return response.data;

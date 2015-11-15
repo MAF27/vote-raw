@@ -4,7 +4,9 @@ var PollService = require("../services/poll-service");
 var restrict = require("../auth/restrict");
 
 router.get('/', restrict, function(req, res, next) {
-    var vm = { username: req.user ? req.user.firstName : null };
+    var vm = {
+        username: req.user ? req.user.firstName : null
+    };
     res.render('polls/index', vm);
 });
 
@@ -34,8 +36,13 @@ router.get('/api/get-polls', restrict, function(req, res, next) {
 router.get('/api/retrieve-poll', function(req, res, next) {
     PollService.retrievePoll(req.query.pollId, function(err, poll) {
         if (err) {
-            next(err);
+            return res.status(500).json({
+                error: "Couldn't get poll."
+            });
         }
+        /*            next(err);
+                }
+        */
         res.json(poll);
     });
 });

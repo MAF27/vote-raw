@@ -1,12 +1,21 @@
 <section class="vote">
-    <div class="content">
+    <div class="content" ng-show="vm.pollId">
         <h1>Vote on Poll '{{vm.data.title}}'</h1>
         <form name="voteForm">
             <div ng-repeat="option in vm.data.options | orderBy:option.index">
                 <div class="option-box">
-                    <input type="checkbox" ng-model="option.checked" id="op{{option.index}}"/><label for="op{{option.index}}">{{option.description}}</label></div>
+                    <input type="checkbox" ng-model="option.checked" id="op{{option.index}}" />
+                    <label for="op{{option.index}}">{{option.description}}</label>
+                </div>
             </div>
             <button ng-click="vm.getVotes();">Cast Your Vote</button>
         </form>
     </div>
+
+    <!--Error: Poll not found-->
+    <div class="content" ng-show="!vm.pollId">
+        <h1>Poll not found</h1>
+        <p>Ooops. That poll does not exist. It may have  been deleted by its original author.</p>
+    </div>
+
 </section>
