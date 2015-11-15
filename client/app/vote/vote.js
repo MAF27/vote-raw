@@ -4,11 +4,11 @@
 
     angular
         .module('voteApp')
-        .controller('voteCtrl', voteCtrl);
+        .controller('VoteCtrl', VoteCtrl);
 
-    voteCtrl.$inject = ['api', '$routeParams', '$location'];
+    VoteCtrl.$inject = ['api', '$routeParams', '$location', '$scope'];
 
-    function voteCtrl(api, $routeParams, $location) {
+    function VoteCtrl(api, $routeParams, $location, $scope) {
 
         var vm = this;
 
@@ -25,15 +25,27 @@
             }
             $location.path('/stats/' + vm.pollId);
         };
+        
+        vm.showVm = function(){
+            console.log(vm);
+        };
+        
+        vm.ready = function(){
+            return vm.pollId !== null;
+        };
 
         api.retrievePoll($routeParams.pollId)
             .then(function(data) {
                 vm.data = data.poll;
                 vm.pollId = data._id;
+/*console.log('vote.js: success: ', vm);      */          
+                $scope.$digest(); // Since refactoring retrievePoll as a promise, this is necessary in order to make Angular use the vm data when it's ready
             })
             .catch(function(err, status) {
                 vm.pollId = null;
                 vm.errmsg = err.error;
+                $scope.$digest(); // Since refactoring retrievePoll as a promise, this is necessary in order to make Angular use the vm data when it's ready
+/*console.log('vote.js: error: ', vm);                */
             });
     }
 

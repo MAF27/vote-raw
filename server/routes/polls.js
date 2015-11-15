@@ -3,11 +3,11 @@ var router = express.Router();
 var PollService = require("../services/poll-service");
 var restrict = require("../auth/restrict");
 
-router.get('/', restrict, function(req, res, next) {
-    var vm = {
+router.get('/', function(req, res, next) {
+    var vmserver = {
         username: req.user ? req.user.firstName : null
     };
-    res.render('polls/index', vm);
+    res.render('polls/index', vmserver);
 });
 
 router.get('/api/get-ideas', restrict, function(req, res, next) {
@@ -40,9 +40,6 @@ router.get('/api/retrieve-poll', function(req, res, next) {
                 error: "Couldn't get poll."
             });
         }
-        /*            next(err);
-                }
-        */
         res.json(poll);
     });
 });
@@ -59,7 +56,7 @@ router.post('/api/create-poll', restrict, function(req, res, next) {
     });
 });
 
-router.post('/api/update-votes', restrict, function(req, res, next) {
+router.post('/api/update-votes', function(req, res, next) {
     PollService.updateVotes(req.body, function(err) {
         if (err) {
             return res.status(500).json({

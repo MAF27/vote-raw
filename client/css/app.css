@@ -74,10 +74,11 @@ section.main aside .content.manage::before { content: "\f0f1"; }
 section.main aside .content.settings::before { content: "\f0ad"; }
 
 /* Create Poll Section */
-section.create { margin: 0 auto; width: 580px; padding-top: 15px; }
+section.create { margin: 0 auto; width: 650px; padding-top: 15px; }
 section.create input[type=text] { margin-bottom: 5px; width: 400px; }
 section.create input[type=submit] { margin-top: 10px; }
 section.create label { width: 90px; display: inline-block;}
+section.create a { display: block; }
 section.create a.btn { display: inline-block; margin-top: 15px;}
 
 /* Manage Poll Section */

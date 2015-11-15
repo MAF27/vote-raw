@@ -15,7 +15,7 @@
     <!--Error: Poll not found-->
     <div class="content" ng-show="!vm.pollId">
         <h1>Poll not found</h1>
-        <p>Ooops. That poll does not exist. It may have  been deleted by its original author.</p>
+        <p>{{vm.errmsg}}</p>
     </div>
 
 </section>

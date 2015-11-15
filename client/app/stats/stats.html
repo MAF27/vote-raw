@@ -1,6 +1,7 @@
 <section class="stats">
     <div class="content">
-        <h1>Votes for "{{vm.data.title}}"</h1>
-        <div id="chartdiv"></div>
+        <h1 ng-show="vm">Votes for "{{vm.data.title}}"</h1>
+        <p ng-show="!vm">Loading ...</p>
+        <div ng-show="vm" id="chartdiv"></div>
     </div>
 </section>

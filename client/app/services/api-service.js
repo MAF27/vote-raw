@@ -32,6 +32,7 @@
             var promise = new Promise(function(resolve, reject) {
                 $http.get('/polls/api/retrieve-poll', { params: { pollId: pollId } })
                     .then(function success(response) {
+/*console.log('api-service, retrievePoll: ', response);*/
                         resolve(response.data);
                     })
                     .catch(function error(reason, status) {

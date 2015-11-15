@@ -18,17 +18,22 @@
             })
             .when('/vote/:pollId', {
                 templateUrl: '/app/vote/vote.html',
-                controller: 'voteCtrl',
+                controller: 'VoteCtrl',
                 controllerAs: 'vm'
             })
-            .when('/manage', {
+/*            .when('/vote/:pollId', {
+                templateUrl: '/app/vote/vote.html',
+                controller: 'VoteCtrl',
+                controllerAs: 'vm'
+            })
+*/            .when('/manage', {
                 templateUrl: '/app/manage/manage-polls.html',
                 controller: 'ManageCtrl',
                 controllerAs: 'vm'
             })
             .when('/stats/:pollId', {
                 templateUrl: '/app/stats/stats.html',
-                controller: 'statsCtrl',
+                controller: 'StatsCtrl',
                 controllerAs: 'vm'
             });
     }
