@@ -83,6 +83,7 @@ section.create a.btn { display: inline-block; margin-top: 15px;}
 /* Manage Poll Section */
 section.manage { margin: 0 auto; width: 90%; padding-top: 15px; }
 section.manage span { margin-left: 15px; }
+section.manage div.buttons { margin-top: 5px; }
 section.manage .delete { background-color: #6d0911; transition: background-color 0.5s; }
 section.manage .delete:hover { background-color: rgb(253, 127, 132); }
 section.manage ul { list-style: none; margin: 0 0 7px 0; padding-left: 0;}
